@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -123,5 +123,921 @@
     </footer>
     
     <script src="script.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musa Sahe Jackiteh - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --primary-green: #16a34a;
+            --light-blue: #e0f2fe;
+            --light-green: #dcfce7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #f3f4f6;
+            padding: 20px 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            text-transform: capitalize;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-blue);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(to bottom, #ffffff, #f0f9ff);
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+        
+        .hero h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #4b5563;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-btn:hover {
+            background-color: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+        }
+        
+        section h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #111827;
+        }
+        
+        /* About Section */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .profile-img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.03);
+        }
+        
+        .about-content p {
+            font-size: 1.125rem;
+            margin-bottom: 24px;
+            color: #4b5563;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+        
+        .skill-tag {
+            background-color: var(--light-green);
+            color: var(--primary-green);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .project-content {
+            padding: 24px;
+        }
+        
+        .project-content h3 {
+            font-size: 1.375rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #111827;
+        }
+        
+        .project-content p {
+            color: #4b5563;
+            margin-bottom: 20px;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .tech-tag {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .project-link {
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .project-link:hover {
+            color: #1e40af;
+        }
+        
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .skill-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            font-size: 1.125rem;
+            color: #111827;
+        }
+        
+        /* Experience Section */
+        .experience-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .experience-item {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .experience-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .experience-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #111827;
+        }
+        
+        .experience-institution {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+        
+        .experience-date {
+            background-color: var(--light-green);
+            color: var(--primary-green);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 60px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .submit-btn:hover {
+            background-color: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .social-links {
+            text-align: center;
+        }
+        
+        .social-links h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #111827;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            font-size: 2rem;
+        }
+        
+        .social-icons a {
+            color: #374151;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary-blue);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #111827;
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        footer p {
+            margin-bottom: 15px;
+            font-size: 1.125rem;
+        }
+        
+        footer .subtext {
+            color: #9ca3af;
+            font-size: 1rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-icons {
+                gap: 25px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Musa Sahe Jackiteh</div>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1 class="fade-in">Musa Sahe Jackiteh</h1>
+            <h2 class="fade-in delay-1">Computer Engineer & Full-Stack Developer</h2>
+            <p class="fade-in delay-2">Building reliable apps & digital experiences in Africa and beyond.</p>
+            <a href="#projects" class="cta-btn fade-in delay-3">View My Work</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-container">
+                <div>
+                    <img src="https://placehold.co/500x600/e0f2fe/1e3a8a?text=Profile+Photo" alt="Musa Sahe Jackiteh" class="profile-img fade-in">
+                </div>
+                <div class="fade-in delay-1">
+                    <p>I'm a passionate Computer Engineer with expertise in building modern web applications and solving complex technical challenges.</p>
+                    <p>My technical skills span across Python, JavaScript, React, TypeScript, Next.js, TailwindCSS, SQL, and LaTeX. I enjoy creating efficient, scalable solutions that make a real impact.</p>
+                    <p>Beyond coding, I served as a former student president and have extensive experience tutoring and leading study groups. I believe in the power of community and knowledge sharing to drive innovation and growth.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">TailwindCSS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" style="background-color: #f9fafb;">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card fade-in">
+                    <img src="https://placehold.co/600x400/1e3a8a/ffffff?text=Face+Recognition" alt="Face Recognition System" class="project-img">
+                    <div class="project-content">
+                        <h3>Face Recognition System</h3>
+                        <p>A robust face recognition system built with Python and OpenCV for secure authentication and identification.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">Machine Learning</span>
+                        </div>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card fade-in delay-1">
+                    <img src="https://placehold.co/600x400/16a34a/ffffff?text=Attendance+System" alt="Attendance Management System" class="project-img">
+                    <div class="project-content">
+                        <h3>Attendance Management System</h3>
+                        <p>A comprehensive attendance tracking system with real-time reporting and analytics dashboard.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card fade-in delay-2">
+                    <img src="https://placehold.co/600x400/1e3a8a/ffffff?text=CineSeek+App" alt="CineSeek – Movie Discovery App" class="project-img">
+                    <div class="project-content">
+                        <h3>CineSeek – Movie Discovery App</h3>
+                        <p>A modern movie discovery application with personalized recommendations and trending content.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">MoviesDatabase API</span>
+                            <span class="tech-tag">TailwindCSS</span>
+                        </div>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card fade-in delay-3">
+                    <img src="https://placehold.co/600x400/16a34a/ffffff?text=Pekin+Group" alt="Pekin Group Website" class="project-img">
+                    <div class="project-content">
+                        <h3>Pekin Group Website</h3>
+                        <p>Corporate branding website for Pekin Group with responsive design and modern aesthetics.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🐍</div>
+                    <div class="skill-name">Python</div>
+                </div>
+                <div class="skill-card fade-in delay-1">
+                    <div class="skill-icon">🟨</div>
+                    <div class="skill-name">JavaScript</div>
+                </div>
+                <div class="skill-card fade-in delay-2">
+                    <div class="skill-icon">⚛️</div>
+                    <div class="skill-name">React</div>
+                </div>
+                <div class="skill-card fade-in delay-3">
+                    <div class="skill-icon">🔷</div>
+                    <div class="skill-name">Next.js</div>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🔵</div>
+                    <div class="skill-name">TypeScript</div>
+                </div>
+                <div class="skill-card fade-in delay-1">
+                    <div class="skill-icon">🎨</div>
+                    <div class="skill-name">TailwindCSS</div>
+                </div>
+                <div class="skill-card fade-in delay-2">
+                    <div class="skill-icon">🗃️</div>
+                    <div class="skill-name">SQL</div>
+                </div>
+                <div class="skill-card fade-in delay-3">
+                    <div class="skill-icon">📄</div>
+                    <div class="skill-name">LaTeX</div>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🌐</div>
+                    <div class="skill-name">HTML</div>
+                </div>
+                <div class="skill-card fade-in delay-1">
+                    <div class="skill-icon">🌈</div>
+                    <div class="skill-name">CSS</div>
+                </div>
+                <div class="skill-card fade-in delay-2">
+                    <div class="skill-icon">☕</div>
+                    <div class="skill-name">Java</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" style="background-color: #f9fafb;">
+        <div class="container">
+            <h2>Education & Experience</h2>
+            <div class="experience-list">
+                <div class="experience-item fade-in">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">BSc in Computer Engineering</div>
+                            <div class="experience-institution">University</div>
+                        </div>
+                        <div class="experience-date">2018 - 2022</div>
+                    </div>
+                </div>
+                
+                <div class="experience-item fade-in delay-1">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Microsoft Python Program Graduate</div>
+                            <div class="experience-institution">Microsoft</div>
+                        </div>
+                        <div class="experience-date">2021</div>
+                    </div>
+                </div>
+                
+                <div class="experience-item fade-in delay-2">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Fellow</div>
+                            <div class="experience-institution">OpenCV University</div>
+                        </div>
+                        <div class="experience-date">2022</div>
+                    </div>
+                </div>
+                
+                <div class="experience-item fade-in delay-3">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Fellow</div>
+                            <div class="experience-institution">ALX Foundation</div>
+                        </div>
+                        <div class="experience-date">2022</div>
+                    </div>
+                </div>
+                
+                <div class="experience-item fade-in">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Fellow</div>
+                            <div class="experience-institution">The Odin Project Foundation</div>
+                        </div>
+                        <div class="experience-date">2023</div>
+                    </div>
+                </div>
+                
+                <div class="experience-item fade-in delay-1">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Fellow</div>
+                            <div class="experience-institution">SMART Liberia EAd</div>
+                        </div>
+                        <div class="experience-date">2023</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-container">
+                <form class="contact-form fade-in" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required placeholder="Tell me about your project or how I can help you..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+                
+                <div class="social-links fade-in delay-1">
+                    <h3>Connect With Me</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="LinkedIn">🔗</a>
+                        <a href="#" aria-label="GitHub">🐙</a>
+                        <a href="mailto:example@email.com" aria-label="Email">✉️</a>
+                        <a href="tel:+1234567890" aria-label="Phone">📞</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2024 Musa Sahe Jackiteh. All rights reserved.</p>
+            <p class="subtext">Building digital experiences that make a difference in Africa and beyond.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '80px';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.backgroundColor = 'white';
+                navLinks.style.padding = '20px';
+                navLinks.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Active section highlighting based on scroll
+        window.addEventListener('scroll', function() {
+            const sections = ['home', 'about', 'projects', 'skills', 'experience', 'contact'];
+            const scrollPosition = window.scrollY + 100;
+            
+            for (const section of sections) {
+                const element = document.getElementById(section);
+                if (element) {
+                    const offsetTop = element.offsetTop;
+                    const offsetHeight = element.offsetHeight;
+                    
+                    if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                        document.querySelectorAll('.nav-links a').forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${section}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                        break;
+                    }
+                }
+            }
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
